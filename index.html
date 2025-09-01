@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blocksmith SMP</title>
+  <meta name="description" content="A clean, unique landing page for your Minecraft server. Customize easily in assets/config.js." />
+  <meta name="theme-color" content="#23d18b" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600;700&family=Changa:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script defer src="assets/config.js"></script>
+  <script defer src="assets/script.js"></script>
+</head>
+<body>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Go to top">
+      <img src="assets/cube.svg" alt="" class="brand__logo" />
+      <span class="brand__text" id="brandText">Blocksmith SMP</span>
+    </a>
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#status">Status</a>
+      <a href="#ranks">Ranks</a>
+      <a href="#rules">Rules</a>
+      <a href="#contact">Contact</a>
+      <button id="themeToggle" aria-label="Toggle theme" class="btn btn--ghost">🌓</button>
+    </nav>
+  </header>
+
+  <main id="home" class="hero">
+    <div class="hero__overlay"></div>
+    <div class="container hero__content">
+      <img src="assets/cube.svg" class="hero__logo" alt="" />
+      <h1 id="serverName" class="hero__title">Blocksmith SMP</h1>
+      <p id="serverTagline" class="hero__tagline">Survive. Build. Thrive.</p>
+      <div class="ip-card">
+        <code id="serverIP" class="ip-card__ip">play.blocksmith.gg</code>
+        <button id="copyIP" class="btn btn--primary">Copy IP</button>
+        <span id="copyToast" class="toast" role="status" aria-live="polite">Copied!</span>
+      </div>
+      <div class="cta">
+        <a id="discordLink" class="btn btn--accent" href="#" target="_blank" rel="noopener">Join Discord</a>
+        <a id="mapLink" class="btn btn--ghost" href="#" target="_blank" rel="noopener">Live Map</a>
+        <a id="storeLink" class="btn btn--ghost" href="#" target="_blank" rel="noopener">Store</a>
+      </div>
+      <div class="scroll-hint">Scroll</div>
+    </div>
+  </main>
+
+  <section id="about" class="section">
+    <div class="container grid grid--2">
+      <div class="card glass">
+        <h2>About <span class="accent" id="serverNameInline">Blocksmith SMP</span></h2>
+        <p id="aboutText">
+          A chill survival server with a focus on community, creativity, and lag‑free gameplay.
+          Simple rules, friendly staff, and quality‑of‑life tweaks to keep things fun.
+        </p>
+        <ul class="list list--ticks" id="aboutBullets">
+          <li>Keep inventory: <strong>Off</strong> (we like risk!)</li>
+          <li>Griefing: <strong>Not allowed</strong> – claims protect your builds.</li>
+          <li>Economy: <strong>Player‑driven</strong> with shops & trades.</li>
+        </ul>
+      </div>
+      <div class="card glass">
+        <h3 class="mb-2">Connection Info</h3>
+        <div class="kv">
+          <span>Server IP</span><strong id="aboutIP">play.blocksmith.gg</strong>
+        </div>
+        <div class="kv">
+          <span>Version</span><strong id="aboutVersion">1.20+</strong>
+        </div>
+        <div class="kv">
+          <span>Region</span><strong id="aboutRegion">EU</strong>
+        </div>
+        <div class="kv">
+          <span>Gamemode</span><strong id="aboutMode">Survival</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="section section--alt">
+    <div class="container">
+      <h2 class="center">Why you’ll love it</h2>
+      <div id="featureGrid" class="grid grid--3"></div>
+    </div>
+  </section>
+
+  <section id="status" class="section">
+    <div class="container">
+      <h2 class="center">Live Status</h2>
+      <div class="grid grid--3">
+        <div class="card glass">
+          <div class="stat">
+            <span>Server</span>
+            <strong id="statOnline" class="chip">Checking…</strong>
+          </div>
+          <div class="stat"><span>Players</span><strong id="statPlayers">–</strong></div>
+          <div class="stat"><span>Version</span><strong id="statVersion">–</strong></div>
+          <div class="stat"><span>MotD</span><strong id="statMotd">–</strong></div>
+          <button id="refreshStatus" class="btn btn--ghost mt-2">Refresh</button>
+        </div>
+        <div class="card glass">
+          <h3 class="mb-1">Vote Links</h3>
+          <ul id="voteList" class="list list--links"></ul>
+        </div>
+        <div class="card glass">
+          <h3 class="mb-1">Quick Links</h3>
+          <ul class="list list--links">
+            <li><a id="qDiscord" href="#" target="_blank" rel="noopener">Discord</a></li>
+            <li><a id="qMap" href="#" target="_blank" rel="noopener">Dynmap / Pl3xMap</a></li>
+            <li><a id="qStore" href="#" target="_blank" rel="noopener">Store / Ranks</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ranks" class="section section--alt">
+    <div class="container">
+      <h2 class="center">Ranks & Perks</h2>
+      <div class="grid grid--3" id="rankGrid"></div>
+      <p class="center mt-2"><a id="storeCta" href="#" target="_blank" rel="noopener" class="btn btn--accent">Visit the Store</a></p>
+    </div>
+  </section>
+
+  <section id="rules" class="section">
+    <div class="container grid grid--2">
+      <div class="card glass">
+        <h2>Rules</h2>
+        <ol class="list list--ordered" id="rulesList">
+          <li>No griefing or stealing.</li>
+          <li>No cheats, x‑ray, or hacked clients.</li>
+          <li>Be respectful; hate speech = ban.</li>
+          <li>AFK farms allowed within reason.</li>
+        </ol>
+      </div>
+      <div class="card glass">
+        <h3>FAQ</h3>
+        <details open>
+          <summary>How do I claim land?</summary>
+          <p>Use <code>/claim</code> to get started. Expand with in‑game items or commands.</p>
+        </details>
+        <details>
+          <summary>Is PvP enabled?</summary>
+          <p>PvP is enabled outside claims and arenas. Play fair.</p>
+        </details>
+        <details>
+          <summary>Java or Bedrock?</summary>
+          <p>Java (Bedrock via Geyser is optional; toggle in config).</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section section--alt">
+    <div class="container">
+      <h2 class="center">Contact Staff</h2>
+      <form name="contact" method="POST" data-netlify="true" class="card glass form">
+        <input type="hidden" name="form-name" value="contact">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button class="btn btn--primary">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <small>&copy; <span id="year"></span> <span id="footerName">Blocksmith SMP</span>. Not affiliated with Mojang.</small>
+      <div class="footer__links">
+        <a id="footerDiscord" href="#" target="_blank" rel="noopener" aria-label="Discord">Discord</a>
+        <a href="#" id="footerMap" target="_blank" rel="noopener" aria-label="Map">Map</a>
+        <a href="#" id="footerStore" target="_blank" rel="noopener" aria-label="Store">Store</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
